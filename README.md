@@ -154,25 +154,25 @@ Variable 2 >> productId
 
 Séquence de test proposé
 
-> Créer un utilisateur admin
-> Authentifier l'utilisateur
-> Récupérer la liste des produits qui sera vide au départ(sur swagger il vous sera demandé de vous authentifier avec le mail et le mot de passe d'un utilisateur créé, sur postman renseigner le token dans les paramètre authorization)
-> Ajouter un produit avec un utilisateur non admin : attendu 401 unauthorized
-> Ajouter un produit avec un utilisateur avec le mail admin@admin.com : attendu le produit est bien ajouté
-> Récupérer à nouveau la liste des produits : attendu le poduit créé apparait bien dans la liste
-> Modifier le produit avec un utilisateur non admin (email différent de admin@admin.com) : attendu 401 unauthorized
-> Modifier le produit avec un utilisateur admin (email = admin@admin.com) : attendu le produit est bien modifié
-> Ajouter le produit au panier de l'utilisateur courant
-> Récupérer le panier de l'utilisateur courant : attendu les produits ajoutés apparaissent dans le panier de l'utilisateur
-> Modifier la quantité du produit dans le panier
-> Ajouter un nouveau produit au panier
-> Récupérer à nouveau le panier : tous les produits ajoutés sont présents
-> Supprimer un produit du panier
-> Récupérer à nouveau le panier : l'élément supprimé n'y es plus
-> Supprimer le panier
-> Récupérer à nouveau le panier : les items sont vides dans le panier
-> Ajouter le produit à la wishist
-> Récupérer a liste des produits présent dans la wishlist
-> Supprimer la wishlist
-> Récupérer à nouveau la wishlist : le tableau des produits y est vide
+Créer un utilisateur admin
+Authentifier l'utilisateur
+Récupérer la liste des produits qui sera vide au départ(sur swagger il vous sera demandé de vous authentifier avec le mail et le mot de passe d'un utilisateur créé, sur postman renseigner le token dans les paramètre authorization)
+Ajouter un produit avec un utilisateur non admin : attendu 401 unauthorized
+Ajouter un produit avec un utilisateur avec le mail admin@admin.com : attendu le produit est bien ajouté
+Récupérer à nouveau la liste des produits : attendu le poduit créé apparait bien dans la liste
+Modifier le produit avec un utilisateur non admin (email différent de admin@admin.com) : attendu 401 unauthorized
+Modifier le produit avec un utilisateur admin (email = admin@admin.com) : attendu le produit est bien modifié
+Ajouter le produit au panier de l'utilisateur courant
+Récupérer le panier de l'utilisateur courant : attendu les produits ajoutés apparaissent dans le panier de l'utilisateur
+Modifier la quantité du produit dans le panier
+Ajouter un nouveau produit au panier
+Récupérer à nouveau le panier : tous les produits ajoutés sont présents
+Supprimer un produit du panier
+Récupérer à nouveau le panier : l'élément supprimé n'y es plus
+Supprimer le panier
+Récupérer à nouveau le panier : les items sont vides dans le panier
+Ajouter le produit à la wishist
+Récupérer a liste des produits présent dans la wishlist
+Supprimer la wishlist
+Récupérer à nouveau la wishlist : le tableau des produits y est vide
 
