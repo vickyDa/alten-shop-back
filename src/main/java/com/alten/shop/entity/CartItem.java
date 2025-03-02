@@ -1,5 +1,6 @@
 package com.alten.shop.entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import lombok.Data;
 
@@ -11,6 +12,7 @@ public class CartItem {
     private Long id;
 
     @ManyToOne
+    @JsonBackReference
     private Cart cart;
 
     @ManyToOne
