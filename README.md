@@ -44,6 +44,7 @@ Utiliser le token pour tester les autres API
 
 Test Via Swagger
 ##########################################################
+
 Exposer les APIs disponible en accédant au lien swagger 
 http://localhost:8090/swagger-ui/index.html#/
 
@@ -110,24 +111,68 @@ NB: seul l'utilisateur avec un email admin@admin.com peut exécuter avec succès
 Tester les API de gestion de panier et favoris avec un utilisateur créé et authentifié que ce soit sur postman ou swagger
 
 Wishlist (prérequis : créer un utilisateur, l'authentifier, créer un produit)
+######################################################################################"
 
-- ajouter un produit à la wishlist 
-
+ajouter un produit à la wishlist 
 POST  >> http://localhost:8090/wishlist/1/add?productId=1
-
 variable 1 >> userId
 Variable 2 >> productId
 
-
-- récupérer la wishlist d'un utilisateur
-
+récupérer la wishlist d'un utilisateur
 GET >> http://localhost:8090/wishlist/1
 Variable >> userId
 
-- Retirer un produit de la wishlist
-
+Retirer un produit de la wishlist
 DELETE >> http://localhost:8090/wishlist/1/remove?productId=1
 Variable 1 >> userId
 Variable 2 >> productId
 
+
+Gestion du panier (prérequis : créer un utilisateur, l'authentifier, créer un produit)
+###############################################################################################
+
+Ajouter un produit à un panier pour un utilisateur
+http://localhost:8090/cart/1/add/1?quantity=1
+Variable 1 >> userId
+Variable 2 >> productId
+Variable 3 >> quantity
+
+Récupérer le panier d'un utilisateur
+GET >> http://localhost:8090/cart/1
+Variable >> userId
+
+Mettre à jour un produit du panier d'un utilisateur
+PUT >> http://localhost:8090/cart/1/update/1?quantity=2
+Variable 1 >> userId
+Variable 2 >> productId
+Variable 3 >> quantity
+
+Retirer un produit du panier d'un utilisateur
+DELTE >> http://localhost:8090/cart/1/remove/1
+Variable 1 >> userId
+Variable 2 >> productId
+
+Séquence de test proposé
+
+> Créer un utilisateur admin
+> Authentifier l'utilisateur
+> Récupérer la liste des produits qui sera vide au départ(sur swagger il vous sera demandé de vous authentifier avec le mail et le mot de passe d'un utilisateur créé, sur postman renseigner le token dans les paramètre authorization)
+> Ajouter un produit avec un utilisateur non admin : attendu 401 unauthorized
+> Ajouter un produit avec un utilisateur avec le mail admin@admin.com : attendu le produit est bien ajouté
+> Récupérer à nouveau la liste des produits : attendu le poduit créé apparait bien dans la liste
+> Modifier le produit avec un utilisateur non admin (email différent de admin@admin.com) : attendu 401 unauthorized
+> Modifier le produit avec un utilisateur admin (email = admin@admin.com) : attendu le produit est bien modifié
+> Ajouter le produit au panier de l'utilisateur courant
+> Récupérer le panier de l'utilisateur courant : attendu les produits ajoutés apparaissent dans le panier de l'utilisateur
+> Modifier la quantité du produit dans le panier
+> Ajouter un nouveau produit au panier
+> Récupérer à nouveau le panier : tous les produits ajoutés sont présents
+> Supprimer un produit du panier
+> Récupérer à nouveau le panier : l'élément supprimé n'y es plus
+> Supprimer le panier
+> Récupérer à nouveau le panier : les items sont vides dans le panier
+> Ajouter le produit à la wishist
+> Récupérer a liste des produits présent dans la wishlist
+> Supprimer la wishlist
+> Récupérer à nouveau la wishlist : le tableau des produits y est vide
 
