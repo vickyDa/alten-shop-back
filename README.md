@@ -109,5 +109,25 @@ NB: seul l'utilisateur avec un email admin@admin.com peut exécuter avec succès
 
 Tester les API de gestion de panier et favoris avec un utilisateur créé et authentifié que ce soit sur postman ou swagger
 
+Wishlist (prérequis : créer un utilisateur, l'authentifier, créer un produit)
+
+- ajouter un produit à la wishlist 
+
+POST  >> http://localhost:8090/wishlist/1/add?productId=1
+
+variable 1 >> userId
+Variable 2 >> productId
+
+
+- récupérer la wishlist d'un utilisateur
+
+GET >> http://localhost:8090/wishlist/1
+Variable >> userId
+
+- Retirer un produit de la wishlist
+
+DELETE >> http://localhost:8090/wishlist/1/remove?productId=1
+Variable 1 >> userId
+Variable 2 >> productId
 
 
