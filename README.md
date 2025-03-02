@@ -1,3 +1,5 @@
+Cloner à partir de la branche master
+Exécuter le projet (springboot avec une base H2)
 
 Plan de test des API
 
